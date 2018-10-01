@@ -12,6 +12,7 @@ namespace PicDB
         private IPTCViewModel _iptc;
         private PhotographerViewModel _photographer;
         private string _picTitle;
+        private string _picNotes;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,6 +37,24 @@ namespace PicDB
             }
         }
 
+        public string picNotes
+        {
+            get
+            {
+                return _picNotes;
+            }
+            set
+            {
+                if (value != _picNotes)
+                {
+                    _picNotes = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+
+
         public PictureViewModel(PictureModel mdl)
         {
             this.mdl = mdl;
@@ -43,6 +62,8 @@ namespace PicDB
             _iptc = new IPTCViewModel();
             EXIFModel em = new EXIFModel();
             em.Make = "Hi";
+            em.ISOValue = 30;
+            em.Flash = true;
             _exif = new EXIFViewModel(em);
             _picTitle = "";
             _photographer = new PhotographerViewModel(new PhotographerModel());

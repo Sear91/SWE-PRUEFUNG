@@ -6,7 +6,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
-            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="120*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="200" />
@@ -99,7 +99,7 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40" />
-                            <RowDefinition Height="30" />
+                            <RowDefinition Height="35" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="10" />
                             <RowDefinition Height="40" />
@@ -112,12 +112,24 @@
                             </ComboBox>
                         </StackPanel>
                         <TextBox Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Text="{Binding CurrentPicture.picTitle, Mode=TwoWay}"></TextBox>
-                        <TextBox Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" AcceptsReturn="True" TextWrapping="Wrap">Notes</TextBox>
+                        <TextBox Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding CurrentPicture.picNotes, Mode=TwoWay}"></TextBox>
                         <Button Grid.Row="4" x:Name="saveButton" Content="SAVE" Width="75" Height="20" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="EXIF">
-                    <TextBlock Margin="5" Text="{Binding EXIF}" />
+                  <TextBlock Margin="5">
+                    <TextBlock.Text>
+                      <MultiBinding StringFormat="{}Make:&#x09;&#x09;&#x09;{0}&#x0a;ExposureProgram:&#x09;{1}&#x0a;Camera:&#x09;&#x09;{2}&#x0a;ExposureTime:&#x09;&#x09;{3}&#x0a;FNumber:&#x09;&#x09;{4}&#x0a;Flash:&#x09;&#x09;&#x09;{5}&#x0a;ISOValue:&#x09;&#x09;{6}">
+                        <Binding Path="CurrentPicture.EXIF.Make"            StringFormat="Make:             {0}"/>
+                        <Binding Path="CurrentPicture.EXIF.ExposureProgram" StringFormat="ExposureProgram:  {0}"/>
+                        <Binding Path="CurrentPicture.EXIF.Camera"          StringFormat="Camera:           {0}"/>
+                        <Binding Path="CurrentPicture.EXIF.ExposureTime"    StringFormat="ExposureTime:     {0}"/>
+                        <Binding Path="CurrentPicture.EXIF.FNumber"         StringFormat="FNumber:          {0}"/>
+                        <Binding Path="CurrentPicture.EXIF.Flash"           StringFormat="Flash:            {0}"/>
+                        <Binding Path="CurrentPicture.EXIF.ISOValue"        StringFormat="ISOValue:         {0}"/>
+                      </MultiBinding>
+                    </TextBlock.Text>
+                  </TextBlock> 
                 </TabItem>
             </TabControl>
         </Grid>

@@ -17,8 +17,6 @@
       <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin ="5" Height="40" VerticalAlignment="Top" FontSize="20" FontWeight="Bold">Photographers</Label>
       
       <!--Photographer-List-->
-      <TextBox Grid.Column="0" Grid.Row="0" Margin ="5, 45, 5, 5" Text="JUHU"/>
-
       <ListBox Name ="photographerList" Grid.Column="0" Grid.Row="0" Margin ="5, 45, 5, 5"
                  SelectedItem="{Binding CurrentPhotographer, Mode=TwoWay}"
                  ItemsSource="{Binding List.List}"
@@ -37,7 +35,7 @@
                 <ColumnDefinition Width="*"/>
               </Grid.ColumnDefinitions>
               <TextBlock Grid.Column="0" Text="{Binding FirstName}" />
-              <TextBlock Grid.Column="1" Text="{Binding LastName}" />
+              <TextBlock Margin="3,0,0,0" Grid.Column="1" Text="{Binding LastName}" />
             </Grid>
           </DataTemplate>
         </ListBox.ItemTemplate>
@@ -46,12 +44,43 @@
       </ListBox>
       
       <!--Photographer-Detail-->
-      <TextBox Grid.Column="1" Grid.Row="0" Margin ="5, 45, 5, 5" />
-      
-      <!--Buttons-->
-      <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Buttons" />
-      
-      
-        
-    </Grid>
+		<Grid Grid.Column="1" Grid.Row="0" Margin="5,70,5,5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<StackPanel Grid.Column="0" Margin="4" Width="Auto" >
+				<TextBlock Margin="0,4,0,0" Text="Name" HorizontalAlignment="Right" />
+				<TextBlock Margin="0,10,0,0" Text="Surname" HorizontalAlignment="Right" />
+				<TextBlock Margin="0,10,0,0" Text="Birthday" HorizontalAlignment="Right" />
+				<TextBlock Margin="0,10,0,0" Text="Notes" HorizontalAlignment="Right" />
+			</StackPanel>
+			<StackPanel Grid.Column="1" Margin="4">
+				<TextBox Text="{Binding CurrentPhotographer.FirstName}" Margin="0, 4" />
+				<TextBox Text="{Binding CurrentPhotographer.LastName}" Margin="0, 4" />
+				<TextBox Text="{Binding CurrentPhotographer.BirthDay}" Margin="0, 4" />
+				<TextBox Text="{Binding CurrentPhotographer.Notes}" Margin="0, 4" />
+			</StackPanel>
+		</Grid>
+
+		<!--Buttons-->
+		<Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" >
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Button Margin="5" Height="20" Content="Add Photographer" Grid.Column="0"/>
+				<Button Margin="5" Height="20" Content="Delete Photographer" Grid.Column="1"/>
+				<Button Margin="5" Height="20" Content="Save" Grid.Column="2" Click="SavePhotographer"/>
+			</Grid>
+		</Grid>
+
+
+
+	</Grid>
 </Window>

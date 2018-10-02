@@ -37,14 +37,23 @@ namespace PicDB
                     list.Add(photographerViewModel);
                 }
             }
-            
+
 
             //Testphotograph
             PhotographerModel p = new PhotographerModel();
             p.FirstName = "Hans";
             p.LastName = "Peter";
+            p.Notes = "Ur toll";
             PhotographerViewModel pvm = new PhotographerViewModel(p);
             list.Add(pvm);
+
+            p = new PhotographerModel();
+            p.FirstName = "Maria";
+            p.LastName = "Magdalena";
+            p.Notes = "Zu hell";
+            pvm = new PhotographerViewModel(p);
+            list.Add(pvm);
+
             //-------------
 
             return list;
@@ -66,6 +75,11 @@ namespace PicDB
             {
                 _list = value;
             }
+        }
+
+        public void saveList()
+        {
+            Console.WriteLine("List saved");
         }
     }
 }

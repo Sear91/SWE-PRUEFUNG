@@ -25,6 +25,7 @@ namespace PicDB
     {
         
 
+
         public PhotographerWindow()
         {
             
@@ -32,7 +33,13 @@ namespace PicDB
         
         }
 
-
-        
+        private void SavePhotographer(object sender, RoutedEventArgs e)
+        {
+            foreach (PhotographerViewModel item in this.photographerList.ItemsSource)
+            {
+                Console.WriteLine("Photograph gespeichert");
+            }
+            
+        }
     }
 }

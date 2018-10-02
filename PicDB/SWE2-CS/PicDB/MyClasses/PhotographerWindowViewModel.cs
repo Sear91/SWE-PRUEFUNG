@@ -20,5 +20,12 @@ namespace PicDB
             }
         }
 
+        public PhotographerViewModel CurrentPhotographer { get; set; }
+
+        public void saveList()
+        {
+            Console.WriteLine("List saved");
+        }
+
     }
 }

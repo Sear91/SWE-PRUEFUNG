@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using BIF.SWE2.Interfaces.ViewModels;
 
 namespace PicDB
@@ -74,7 +75,7 @@ namespace PicDB
         {
             get
             {
-                
+
                 return _camera;
             }
         }
@@ -83,18 +84,27 @@ namespace PicDB
         {
             get
             {
+                string ganzerPfad = FileName;
+                string[] splitPfad = ganzerPfad.Split('\\');
+                string pictureName = splitPfad[splitPfad.Length - 1];
+
                 if (String.IsNullOrEmpty(picTitle))
                 {
-                    string ganzerPfad = FileName;
-                    string[] splitPfad = ganzerPfad.Split('\\');
-                    string pictureName = splitPfad[splitPfad.Length - 1];
                     picTitle = pictureName.Split('.')[0];
-
-                    
                 }
+                else
+                {
+                    //C:\Users\manfr\OneDrive\Dokumente\Alg_prüfung\fad\PicDB\SWE2-CS\deploy\Pictures
+                    //FileInfo pic = new FileInfo(FileName);
+                    //string directorypath = pic.DirectoryName;
+                    //directorypath += "\\" + picTitle + ".jpg";
+                    ////File.Delete(directorypath);
+                    //File.Move(FileName, directorypath);
+                }
+
                 return picTitle + " (by " + Photographer.FirstName + " " + Photographer.LastName + ")";
             }
-            
+
         }
 
         public IEXIFViewModel EXIF

@@ -33,13 +33,53 @@ namespace PicDB
         
         }
 
+        /// <summary>
+        /// Die Photographers werden in ein ConfigFile gespeichert
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SavePhotographer(object sender, RoutedEventArgs e)
         {
+
+            string photographerData ="";
+
             foreach (PhotographerViewModel item in this.photographerList.ItemsSource)
             {
+                //shit pfad
+
+                photographerData += item.FirstName + ";" + item.LastName + ";" + item.BirthDay + ";" + item.Notes + "\n";
+                
+
+                
                 Console.WriteLine("Photograph gespeichert");
             }
-            
+            System.IO.File.WriteAllText(@"C:\Users\Mausi\Desktop\SWE-PRUEFUNG\PicDB\photographers.config", photographerData);
+
+        }
+        /// <summary>
+        /// fügt einen Photographen hinzu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddPhotographer(object sender, RoutedEventArgs e)
+        {
+            //List<PhotographerModel> pml = (List < PhotographerModel > )this.photographerList.ItemsSource;
+            //PhotographerModel p = new PhotographerModel();
+            //p.FirstName = this.firstName.Text;
+            //p.LastName = this.lastName.Text;
+            //p.Notes = this.notes.Text;
+            //pml.Add(p);
+            //this.photographerList.ItemsSource = pml;
+        }
+
+        /// <summary>
+        /// Löscht aktiven Photographen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

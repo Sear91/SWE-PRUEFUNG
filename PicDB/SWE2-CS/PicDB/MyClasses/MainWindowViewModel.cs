@@ -9,7 +9,10 @@ namespace PicDB
     {
         protected PictureListViewModel pictureList;
 
-
+        /// <summary>
+        /// Constructor
+        /// setzt das currentPicture auf null und befüllt die pictureList
+        /// </summary>
         public MainWindowViewModel()
         {
             pictureList = new PictureListViewModel();
@@ -17,6 +20,9 @@ namespace PicDB
             
         }
 
+        /// <summary>
+        /// liefert das aktuelle Bild zurück
+        /// </summary>
         public IPictureViewModel CurrentPicture
         {
             get
@@ -31,6 +37,9 @@ namespace PicDB
             }
         }
 
+        /// <summary>
+        /// liefert die Liste der Bilder zurück
+        /// </summary>
         public IPictureListViewModel List
         {
             get
@@ -39,6 +48,9 @@ namespace PicDB
             }
         }
 
+        /// <summary>
+        /// liefert das SearchViewModel zurück
+        /// </summary>
         public ISearchViewModel Search
         {
             get

@@ -3,166 +3,167 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         DataContext="{StaticResource MainWindowViewModel}"
         Title="PicDB" Height="600" Width="900">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="120*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="200" />
-        </Grid.RowDefinitions>
-        <!-- 1. Zeile / Menü -->
-        <Grid Grid.Row="0">
-            <DockPanel Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch">
-                <Menu DockPanel.Dock="Top">
-                    <Menu.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="70" />
-                                    <ColumnDefinition Width="70" />
-                                    <ColumnDefinition Width="70" />
-                                    <ColumnDefinition Width="*" />
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="20" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="120*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="200" />
+		</Grid.RowDefinitions>
+		<!-- 1. Zeile / Menü -->
+		<Grid Grid.Row="0">
+			<DockPanel Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch">
+				<Menu DockPanel.Dock="Top">
+					<Menu.ItemsPanel>
+						<ItemsPanelTemplate>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="70" />
+									<ColumnDefinition Width="70" />
+									<ColumnDefinition Width="70" />
+									<ColumnDefinition Width="*" />
 
-                                </Grid.ColumnDefinitions>
-                            </Grid>
-                        </ItemsPanelTemplate>
-                    </Menu.ItemsPanel>
-                    <MenuItem Grid.Column="0" Width="70" BorderThickness="1,1,0,1" BorderBrush="Black" Padding="0">
-                        <MenuItem.Header>
-                            <TextBlock TextAlignment="Center" Width="68">File</TextBlock>
-                        </MenuItem.Header>
-                        <MenuItem Header="_Open"/>
-                        <MenuItem Header="_Close"/>
-                        <MenuItem Header="_Save"/>
-                    </MenuItem>
-                    <MenuItem Grid.Column="1" Width="70" BorderThickness="1,1,0,1" BorderBrush="Black" Padding="0">
-                        <MenuItem.Header>
-                            <TextBlock TextAlignment="Center" Width="68">Edit</TextBlock>
-                        </MenuItem.Header>
-                        <MenuItem Header="Photographer" Click="editPhotographer"/>
-                      
-                    </MenuItem>
-                    <MenuItem Grid.Column="2" Width="70" BorderThickness="1" BorderBrush="Black" Padding="0">
-                        <MenuItem.Header>
-                            <TextBlock TextAlignment="Center" Width="68">Options</TextBlock>
-                        </MenuItem.Header>
-                      <MenuItem Header="Make Tags"/>
-                      <MenuItem Header="Make PDF"/>
-                    </MenuItem>
-                    <MenuItem Grid.Column="3" HorizontalAlignment="Right" Width="70" BorderThickness="1" BorderBrush="Black" Padding="0">
-                        <MenuItem.Header>
+								</Grid.ColumnDefinitions>
+							</Grid>
+						</ItemsPanelTemplate>
+					</Menu.ItemsPanel>
+					<MenuItem Grid.Column="0" Width="70" BorderThickness="1,1,0,1" BorderBrush="Black" Padding="0">
+						<MenuItem.Header>
+							<TextBlock TextAlignment="Center" Width="68">File</TextBlock>
+						</MenuItem.Header>
+						<MenuItem Header="_Open"/>
+						<MenuItem Header="_Close"/>
+						<MenuItem Header="_Save"/>
+					</MenuItem>
+					<MenuItem Grid.Column="1" Width="70" BorderThickness="1,1,0,1" BorderBrush="Black" Padding="0">
+						<MenuItem.Header>
+							<TextBlock TextAlignment="Center" Width="68">Edit</TextBlock>
+						</MenuItem.Header>
+						<MenuItem Header="Photographer" Click="editPhotographer"/>
 
-                            <TextBlock TextAlignment="Center" Width="68" >Help</TextBlock>
-                        </MenuItem.Header>
-                        <MenuItem Header="Developer"/>
-                      <MenuItem Header="Manual" />
-                    </MenuItem>
-                </Menu>
-            </DockPanel>
-        </Grid>
-      
-        <!-- 2. Zeile / Search -->
-        <Grid Grid.Row="1" DataContext="{Binding Search}">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition />
-          </Grid.ColumnDefinitions>
-          <TextBox Grid.Column="0" Margin="2" 
+					</MenuItem>
+					<MenuItem Grid.Column="2" Width="70" BorderThickness="1" BorderBrush="Black" Padding="0">
+						<MenuItem.Header>
+							<TextBlock TextAlignment="Center" Width="68">Options</TextBlock>
+						</MenuItem.Header>
+						<MenuItem Header="Make Tags"/>
+						<MenuItem Header="Make PDF"/>
+					</MenuItem>
+					<MenuItem Grid.Column="3" HorizontalAlignment="Right" Width="70" BorderThickness="1" BorderBrush="Black" Padding="0">
+						<MenuItem.Header>
+
+							<TextBlock TextAlignment="Center" Width="68" >Help</TextBlock>
+						</MenuItem.Header>
+						<MenuItem Header="Developer"/>
+						<MenuItem Header="Manual" />
+					</MenuItem>
+				</Menu>
+			</DockPanel>
+		</Grid>
+
+		<!-- 2. Zeile / Search -->
+		<Grid Grid.Row="1" DataContext="{Binding Search}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="10*"/>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<TextBox Grid.Column="0" Margin="2" 
               TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding SearchText, Mode=OneWayToSource}"
                />
-          <Button Content="Search"  Grid.Column="1" Margin="2" />
-        </Grid>
-      
-      <!-- 3. Zeile / Main -->
-        <Grid Grid.Row="2" Background="#FFBCBCBC">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-          
-            <!-- FOTO -->
-            <Image Margin="5" Source="{Binding CurrentPicture.FilePath}" Grid.Column="0"/>
+			<Button Content="Search"  Grid.Column="1" Margin="2" />
+		</Grid>
 
-            <GridSplitter HorizontalAlignment="Right" 
+		<!-- 3. Zeile / Main -->
+		<Grid Grid.Row="2" Background="#FFBCBCBC">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="2*"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<!-- FOTO -->
+			<Image Margin="5" Source="{Binding CurrentPicture.FilePath}" Grid.Column="0"/>
+
+			<GridSplitter HorizontalAlignment="Right" 
                   VerticalAlignment="Stretch" 
                   Grid.Column="1" ResizeBehavior="PreviousAndNext"
                   Width="5" Background="Black"/>
-          
-            <!-- IPTC/EXIF -->
-            <TabControl Grid.Column="2">
-                <TabItem Header="IPTC">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="40" />
-                            <RowDefinition Height="35" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" Width="Auto" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center">
-                            <ComboBox>
-                                <ComboBoxItem IsSelected="True">Option1</ComboBoxItem>
-                                <ComboBoxItem>Option2</ComboBoxItem>
-                                <ComboBoxItem>Option3</ComboBoxItem>
-                            </ComboBox>
-                        </StackPanel>
-                        <TextBox Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Text="{Binding CurrentPicture.picTitle, Mode=TwoWay}"></TextBox>
-                        <TextBox Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding CurrentPicture.picNotes, Mode=TwoWay}"></TextBox>
-                        <Button Grid.Row="4" x:Name="saveButton" Content="SAVE" Width="75" Height="20" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="EXIF">
-                  <TextBlock Margin="5">
-                    <TextBlock.Text>
-                      <MultiBinding StringFormat="{}Make:&#x09;&#x09;&#x09;{0}&#x0a;ExposureProgram:&#x09;{1}&#x0a;Camera:&#x09;&#x09;{2}&#x0a;ExposureTime:&#x09;&#x09;{3}&#x0a;FNumber:&#x09;&#x09;{4}&#x0a;Flash:&#x09;&#x09;&#x09;{5}&#x0a;ISOValue:&#x09;&#x09;{6}">
-                        <Binding Path="CurrentPicture.EXIF.Make"            StringFormat="Make:             {0}"/>
-                        <Binding Path="CurrentPicture.EXIF.ExposureProgram" StringFormat="ExposureProgram:  {0}"/>
-                        <Binding Path="CurrentPicture.EXIF.Camera"          StringFormat="Camera:           {0}"/>
-                        <Binding Path="CurrentPicture.EXIF.ExposureTime"    StringFormat="ExposureTime:     {0}"/>
-                        <Binding Path="CurrentPicture.EXIF.FNumber"         StringFormat="FNumber:          {0}"/>
-                        <Binding Path="CurrentPicture.EXIF.Flash"           StringFormat="Flash:            {0}"/>
-                        <Binding Path="CurrentPicture.EXIF.ISOValue"        StringFormat="ISOValue:         {0}"/>
-                      </MultiBinding>
-                    </TextBlock.Text>
-                  </TextBlock> 
-                </TabItem>
-            </TabControl>
-        </Grid>
-        <GridSplitter ResizeDirection="Rows"
+
+			<!-- IPTC/EXIF -->
+			<TabControl Grid.Column="2">
+				<TabItem Header="IPTC">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="40" />
+							<RowDefinition Height="35" />
+							<RowDefinition Height="129*" />
+							<RowDefinition Height="32*"/>
+							<RowDefinition Height="10" />
+							<RowDefinition Height="40" />
+						</Grid.RowDefinitions>
+						<StackPanel Grid.Row="0" Width="Auto" Margin="5,9" VerticalAlignment="Center">
+							<ComboBox>
+								<ComboBoxItem IsSelected="True">Option1</ComboBoxItem>
+								<ComboBoxItem>Option2</ComboBoxItem>
+								<ComboBoxItem>Option3</ComboBoxItem>
+							</ComboBox>
+						</StackPanel>
+						<TextBox Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Text="{Binding CurrentPicture.picTitle, Mode=TwoWay}"></TextBox>
+						<TextBox Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding CurrentPicture.picNotes, Mode=TwoWay}" Grid.RowSpan="2"></TextBox>
+						<Button Grid.Row="5" x:Name="saveButton" Content="SAVE" Width="75" Height="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10"/>
+					</Grid>
+				</TabItem>
+				<TabItem Header="EXIF">
+					<TextBlock Margin="5">
+						<TextBlock.Text>
+							<MultiBinding StringFormat="{}Make:&#x09;&#x09;&#x09;{0}&#x0a;ExposureProgram:&#x09;{1}&#x0a;Camera:&#x09;&#x09;{2}&#x0a;ExposureTime:&#x09;&#x09;{3}&#x0a;FNumber:&#x09;&#x09;{4}&#x0a;Flash:&#x09;&#x09;&#x09;{5}&#x0a;ISOValue:&#x09;&#x09;{6}">
+								<Binding Path="CurrentPicture.EXIF.Make"            StringFormat="Make:             {0}"/>
+								<Binding Path="CurrentPicture.EXIF.ExposureProgram" StringFormat="ExposureProgram:  {0}"/>
+								<Binding Path="CurrentPicture.EXIF.Camera"          StringFormat="Camera:           {0}"/>
+								<Binding Path="CurrentPicture.EXIF.ExposureTime"    StringFormat="ExposureTime:     {0}"/>
+								<Binding Path="CurrentPicture.EXIF.FNumber"         StringFormat="FNumber:          {0}"/>
+								<Binding Path="CurrentPicture.EXIF.Flash"           StringFormat="Flash:            {0}"/>
+								<Binding Path="CurrentPicture.EXIF.ISOValue"        StringFormat="ISOValue:         {0}"/>
+							</MultiBinding>
+						</TextBlock.Text>
+					</TextBlock>
+				</TabItem>
+			</TabControl>
+		</Grid>
+		<GridSplitter ResizeDirection="Rows"
                   HorizontalAlignment="Stretch" 
                   VerticalAlignment="Top" 
                   Grid.Row="3" ResizeBehavior="PreviousAndNext"
                   Height="5" Background="Black"/>
-      
-        <!-- 4. Zeile / Thumbnails -->
-        <ListBox Name ="thumbNails" Grid.Row="4" Margin="5"
+
+		<!-- 4. Zeile / Thumbnails -->
+		<ListBox Name ="thumbNails" Grid.Row="4" Margin="5"
                  SelectedItem="{Binding CurrentPicture, Mode=TwoWay}"
                  ItemsSource="{Binding List.List}"
                  ScrollViewer.HorizontalScrollBarVisibility="Auto">
-          
-          <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-              <WrapPanel Orientation="Horizontal" />
-            </ItemsPanelTemplate>
-          </ListBox.ItemsPanel>
-          <ListBox.ItemTemplate>
-            <DataTemplate>
-              <Grid MaxHeight="150" Margin="3" MaxWidth="200">
-                <Grid.RowDefinitions>
-                  <RowDefinition/>
-                  <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Image Source="{Binding FilePath}" Stretch="Uniform"/>
-                <TextBlock Text="{Binding DisplayName, Mode=OneWay}"
+
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel Orientation="Horizontal" />
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid MaxHeight="150" Margin="3" MaxWidth="200">
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<Image Source="{Binding FilePath}" Stretch="Uniform"/>
+						<TextBlock Text="{Binding DisplayName, Mode=OneWay}"
                            HorizontalAlignment="Center"
                            Grid.Row="1"/>
-              </Grid>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-            
-            
-        </ListBox>
-    </Grid>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+
+
+		</ListBox>
+	</Grid>
 </Window>

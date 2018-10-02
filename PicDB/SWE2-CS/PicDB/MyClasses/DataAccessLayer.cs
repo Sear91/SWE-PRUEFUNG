@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using BIF.SWE2.Interfaces;
 using BIF.SWE2.Interfaces.Models;
 
@@ -7,14 +8,37 @@ namespace PicDB
 {
     internal class DataAccessLayer : IMoneyDAL
     {
+        SqlConnection cnn;
+        string connectionString = "user id=shit;password=shit,server=GIGAMATE;database=PicDB;";
         public void DeletePhotographer(int ID)
         {
-            throw new NotImplementedException();
+            cnn.Open();
+            SqlCommand delPhotographer = new SqlCommand("Delete From Photographers Where id = @id", cnn);
+            delPhotographer.Parameters.Add(new SqlParameter("@id", ID));
+            try
+            {
+                delPhotographer.ExecuteNonQuery();
+            }
+            catch(SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
         }
 
         public void DeletePicture(int ID)
         {
-            throw new NotImplementedException();
+            cnn.Open();
+            SqlCommand delPicture = new SqlCommand("Delete From Pictures Where id = @id", cnn);
+            delPicture.Parameters.Add(new SqlParameter("@id", ID));
+            try
+            {
+                delPicture.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public ICameraModel GetCamera(int ID)

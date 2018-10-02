@@ -10,18 +10,18 @@ namespace PicDB
     internal class DataAccessLayer : IMoneyDAL
     {
         SqlConnection cnn;
-        string connectionString;
+        
         public DataAccessLayer()
         {
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\manfr\OneDrive\Dokumente\Alg_prüfung\next shit\PicDB\db.config");
             cnn = new SqlConnection(lines[0]);
-            cnn.Open();
-            int ID = 1;
-            SqlCommand delPhotographer = new SqlCommand("Delete From Pictures Where id = @id", cnn);
-            delPhotographer.Parameters.Add(new SqlParameter("@id", ID));
-            delPhotographer.ExecuteNonQuery();
+            //cnn.Open();
+            //int ID = 1;
+            //SqlCommand delPhotographer = new SqlCommand("Delete From Pictures Where id = @id", cnn);
+            //delPhotographer.Parameters.Add(new SqlParameter("@id", ID));
+            //delPhotographer.ExecuteNonQuery();
 
-            Console.WriteLine(lines[0]);
+            
 
         }
         

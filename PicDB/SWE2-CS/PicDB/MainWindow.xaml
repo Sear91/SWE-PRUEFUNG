@@ -34,15 +34,14 @@
                         </MenuItem.Header>
                         <MenuItem Header="_Open"/>
                         <MenuItem Header="_Close"/>
-                        <MenuItem Header="_Save" Command="{Binding Save}"/>
+                        <MenuItem Header="_Save"/>
                     </MenuItem>
                     <MenuItem Grid.Column="1" Width="70" BorderThickness="1,1,0,1" BorderBrush="Black" Padding="0">
                         <MenuItem.Header>
                             <TextBlock TextAlignment="Center" Width="68">Edit</TextBlock>
                         </MenuItem.Header>
-                        <MenuItem Header="Copy"/>
-                        <MenuItem Header="Cut"/>
-                        <MenuItem Header="Paste"/>
+                        <MenuItem Header="Photographer" Click="editPhotographer"/>
+                      
                     </MenuItem>
                     <MenuItem Grid.Column="2" Width="70" BorderThickness="1" BorderBrush="Black" Padding="0">
                         <MenuItem.Header>
@@ -50,8 +49,6 @@
                         </MenuItem.Header>
                       <MenuItem Header="Make Tags"/>
                       <MenuItem Header="Make PDF"/>
-                      <!--<MenuItem Header="Make Tags" Command="{Binding GenerateTags}"/>
-                      <MenuItem Header="Make PDF" Command="{Binding GeneratePdf}"/>-->
                     </MenuItem>
                     <MenuItem Grid.Column="3" HorizontalAlignment="Right" Width="70" BorderThickness="1" BorderBrush="Black" Padding="0">
                         <MenuItem.Header>
@@ -74,7 +71,7 @@
           <TextBox Grid.Column="0" Margin="2" 
               TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding SearchText, Mode=OneWayToSource}"
                />
-          <Button Content="Search" Command="{Binding Search}" Grid.Column="1" Margin="2" />
+          <Button Content="Search"  Grid.Column="1" Margin="2" />
         </Grid>
       
       <!-- 3. Zeile / Main -->

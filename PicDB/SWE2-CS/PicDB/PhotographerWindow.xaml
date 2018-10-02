@@ -1,0 +1,57 @@
+﻿<Window x:Class="PicDB.PhotographerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        DataContext="{StaticResource PhotographerWindowViewModel}"
+        Title="Photographers" Height="300" Width="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="40" />
+      </Grid.RowDefinitions>
+
+      <!--Überschrift-->
+      <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin ="5" Height="40" VerticalAlignment="Top" FontSize="20" FontWeight="Bold">Photographers</Label>
+      
+      <!--Photographer-List-->
+      <TextBox Grid.Column="0" Grid.Row="0" Margin ="5, 45, 5, 5" Text="JUHU"/>
+
+      <ListBox Name ="photographerList" Grid.Column="0" Grid.Row="0" Margin ="5, 45, 5, 5"
+                 SelectedItem="{Binding CurrentPhotographer, Mode=TwoWay}"
+                 ItemsSource="{Binding List.List}"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto">  <!--TODO: List implementieren--> 
+
+        <ListBox.ItemsPanel>
+          <ItemsPanelTemplate>
+            <WrapPanel Orientation="Vertical" />
+          </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <Grid MaxHeight="40" Margin="3">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+              <TextBlock Grid.Column="0" Text="{Binding FirstName}" />
+              <TextBlock Grid.Column="1" Text="{Binding LastName}" />
+            </Grid>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+
+
+      </ListBox>
+      
+      <!--Photographer-Detail-->
+      <TextBox Grid.Column="1" Grid.Row="0" Margin ="5, 45, 5, 5" />
+      
+      <!--Buttons-->
+      <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Buttons" />
+      
+      
+        
+    </Grid>
+</Window>

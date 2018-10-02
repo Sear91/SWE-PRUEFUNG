@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MyClasses\PhotographerWindowViewModel.cs" />
+    <Compile Include="PhotographerWindow.xaml.cs">
+      <DependentUpon>PhotographerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyClasses\BusinessLayer.cs" />
     <Compile Include="MyClasses\CameraListViewModel.cs" />
     <Compile Include="MyClasses\CameraModel.cs" />
@@ -84,6 +88,10 @@
     <Compile Include="Uebungen\UEB6.cs" />
     <Compile Include="Uebungen\UEB2.cs" />
     <Compile Include="Uebungen\UEB1.cs" />
+    <Page Include="PhotographerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

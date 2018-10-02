@@ -23,8 +23,7 @@ namespace PicDB
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        public string testMe { get; set; }
+        
 
         public MainWindow()
         {
@@ -55,6 +54,12 @@ namespace PicDB
         //    }
         //    public string source { get; set; }
         //}
+
+        private void editPhotographer(object sender, RoutedEventArgs e)
+        {
+            PhotographerWindow photographerWindow = new PhotographerWindow();
+            photographerWindow.ShowDialog();
+        }
 
 
     }

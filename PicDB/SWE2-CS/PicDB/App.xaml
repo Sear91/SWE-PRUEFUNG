@@ -7,5 +7,6 @@
         <local:MainWindowViewModel x:Key="MainWindowViewModel" />
         <local:SearchViewModel x:Key="SearchViewModel"/>
         <local:PhotographerViewModel x:Key="PhotographerViewModel" />
+        <local:PhotographerWindowViewModel x:Key="PhotographerWindowViewModel" />
     </Application.Resources>
 </Application>

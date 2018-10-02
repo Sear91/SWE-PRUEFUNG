@@ -34,7 +34,7 @@ namespace PicDB
 
         public IEnumerable<IPhotographerModel> GetPhotographers()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public IPictureModel GetPicture(int ID)

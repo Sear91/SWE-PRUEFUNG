@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Input;
 using BIF.SWE2.Interfaces.ViewModels;
 
 namespace PicDB
@@ -12,6 +14,7 @@ namespace PicDB
         {
             pictureList = new PictureListViewModel();
             CurrentPicture = null;
+            
         }
 
         public IPictureViewModel CurrentPicture
@@ -43,7 +46,9 @@ namespace PicDB
                 return new SearchViewModel();
             }
         }
+
         
 
+        
     }
 }
